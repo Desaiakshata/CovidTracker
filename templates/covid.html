@@ -1,0 +1,36 @@
+{% block content %}
+<h1 style="align-text:'center'">COVID NUMBERS</h1>
+<h4>The Coronavirus disease led to mass death around the globe.<br>Every country succumbed to record death rates.<br>This has 
+required continuous monitoring to check for surges in different regions.<br> This webapp lets you query active cases by country</h4>
+<div>
+<form class="mui-form" method="POST" action="/covid">
+  <label for="nation">Country</label>
+  <input type="text" class="form-control" id="nation" name="nation" placeholder="Example: Belgrade"><br>
+  <button type="submit" class="mui-btn mui-btn--raised" value="Submit">Submit</button>
+</form>
+</div>
+<br>
+<br>
+
+<div>
+  {% if covid_list %}
+     <table class="mui-table mui-table--bordered">
+        <thead>
+            <tr>
+              <th><h2>COVID-19 tracker for {{ country }}</h2></th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr>
+                <td>Total Cases: {{covid_list[0]}}</td>
+            </tr>
+            <tr>
+                <td>Total Deaths: {{covid_list[1]}}</td>
+            </tr>
+            <tr>
+                <td>Total Recovered: {{covid_list[2]}}</td>
+            </tr>
+        </tbody>
+     </table>
+  {% endif %}
+{% endblock %}
